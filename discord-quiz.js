@@ -107,7 +107,7 @@ exports.quiz = function (message, time, embed_color="0000ff") {
             })
             .catch (error => {
                 console.log (error);
-                message.channel.send(Discord.MessageEmbed("Times up!").setColor("ff0033"));
+                message.channel.send(new Discord.MessageEmbed("Times up!").setColor("ff0033"));
             });
     })
 }
