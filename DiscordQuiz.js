@@ -27,9 +27,9 @@ exports.add_question = function (question, correct_answer, false_answers) {
 
     if (false_answers.length != 3 || !false_answers instanceof Array)
         return console.error('"false_answers" must be a array type with exactly 3 string members.');
-    if (question instanceof String)
+    if (typeof question != 'string')
         return console.error('"question" must be a string.');
-    if (correct_answer instanceof String)
+    if (typeof correct_answer != 'string')
         return console.error('"correct_answer" must be a string.');
 
     questions.push(new Question (question, correct_answer, false_answers))
@@ -42,14 +42,21 @@ exports.log_questions = function () {
     console.log(questions);
 }
 
+exports.get_questions = function () {
+    return questions;
+}
+
 exports.quiz = function (message, time, embed_color="0000ff") {
 
-    if (!message instanceof Discord.Message)
+    if (!Discord.Message.prototype.isPrototypeOf (message))
         return console.error ('"message" must be of type Message from discord.js');
 
+    if (typeof time != 'number')
+        return console.error ('"time" must be a number.');
+    
     var q = questions[Math.floor(Math.random() * questions.length)]
     
-    if (q && q.length == 0)
+    if (typeof q == 'undefined' || q.length <= 0)
         return console.error("You have to add questions before running the quiz function.");
 
     var a = shuffle([q.answer, q.false[0], q.false[1], q.false[2]])
