@@ -1,6 +1,6 @@
 {
   "name": "discord-quiz",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A package built ontop of Discord.js to make creating quiz commands much easier!",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,6 @@
   "keywords": [
     "Discord.js",
     "Discord",
-    "Quiz",
     "Quiz",
     "Command"
   ],

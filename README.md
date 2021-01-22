@@ -1,6 +1,7 @@
-# Foobar
+# Discord Quiz
 
-An NPM package to help create simple quizzes for Discord bots
+An NPM package to help create simple quizzes for Discord bots.
+By SkyMocha.
 
 ## Installation
 
@@ -13,7 +14,7 @@ npm i discord-quiz
 
 ```javascript
 const Discord = require ('discord.js');
-const dquiz = require ('./DiscordQuiz');
+const dquiz = require ('discord-quiz');
 const client = new Discord.Client();
 
 // Adds a question to the pool of available questions
@@ -28,9 +29,9 @@ client.login (<your token>);
 ```
 
 ## Documentation
-`void add_question(String question, String correct_answer, String[] false_answers)`
+**void** add_question(**String** *question*, **String** *correct_answer*, **String[]** *false_answers*)
 
-`void quiz(Discord Message, Time in Seconds, Hex Code)`
+**void** quiz(`Discord Message`, `Time in Seconds`, `Hex Code`)
 
 ## License
 [ISC](https://choosealicense.com/licenses/isc/)
