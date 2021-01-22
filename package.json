@@ -9,5 +9,22 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1"
-  }
+  },
+  "main": "DiscordQuiz.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkyMocha/DiscordQuiz.git"
+  },
+  "keywords": [
+    "Discord.js",
+    "Discord",
+    "Quiz",
+    "Quiz",
+    "Command"
+  ],
+  "bugs": {
+    "url": "https://github.com/SkyMocha/DiscordQuiz/issues"
+  },
+  "homepage": "https://github.com/SkyMocha/DiscordQuiz#readme"
 }
