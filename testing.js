@@ -1,6 +1,6 @@
 const Discord = require ('discord.js');
 
-const dquiz = require ('./DiscordQuiz');
+const dquiz = require ('./discord-quiz');
 
 const client = new Discord.Client();
 
