@@ -25,7 +25,7 @@ function shuffle(array) {
 
 exports.add_question = function (question, correct_answer, false_answers) {
 
-    if (false_answers.length != 3 || !false_answers instanceof Array)
+    if (false_answers != 3 || !false_answers instanceof Array)
         return console.error('"false_answers" must be a array type with exactly 3 string members.');
     if (typeof question != 'string')
         return console.error('"question" must be a string.');
