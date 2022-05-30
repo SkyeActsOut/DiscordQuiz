@@ -3,15 +3,14 @@
   "version": "1.0.3",
   "description": "A package built ontop of Discord.js to make creating quiz commands much easier!",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node testing.js"
   },
   "author": "SkyMocha",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "discord.js": "^13.7.0"
   },
   "main": "discord-quiz",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SkyMocha/DiscordQuiz.git"
