@@ -8,6 +8,10 @@ class Question {
     }
 }
 
+Question.prototype.toString = function() {
+    return `${this.question} : ${this.answer} \n ${this.false}`;
+}
+
 var questions = [
 
 ]
@@ -23,6 +27,13 @@ function shuffle(array) {
     return array;
 }
 
+/**
+ * @description Adds questions for the bot to use
+ * @param {String} question 
+ * @param {String} correct_answer 
+ * @param {Array} false_answers 
+ * @returns {Question}
+ */
 exports.add_question = function (question, correct_answer, false_answers) {
 
     if (false_answers.length != 3 || !false_answers instanceof Array)
@@ -32,20 +43,31 @@ exports.add_question = function (question, correct_answer, false_answers) {
     if (typeof correct_answer != 'string')
         return console.error('"correct_answer" must be a string.');
 
-    questions.push(new Question(question, correct_answer, false_answers))
+    return questions.push(new Question(question, correct_answer, false_answers))
 }
 
-// new Question ('When was the war of 1812?', '1812', ['1800', '2020', '777']), 
-// new Question ('What is pi?', '3.14', ['Rad 2', 'Pineapple', 'Cheese'])
-
+/**
+ * @return {VoidFunction} logs questions in console
+ */
 exports.log_questions = function () {
     console.log(questions);
 }
 
+/**
+ * 
+ * @returns {Array} Questions
+ */
 exports.get_questions = function () {
     return questions;
 }
 
+/**
+ * @description The main command - returns a timed quiz
+ * @param {Discord.Message} message 
+ * @param {Number} time 
+ * @param {String} embed_color 
+ * @returns {VoidFunction}
+ */
 exports.quiz = function (message, time, embed_color = "0000ff") {
 
     if (!Discord.Message.prototype.isPrototypeOf(message))
@@ -66,9 +88,9 @@ exports.quiz = function (message, time, embed_color = "0000ff") {
             .setAuthor({ name: `Question: ${q.question}`, iconUrl: message.client.user.avatarURL })
             .setDescription(
                 `A ) ${a[0]}
-            B ) ${a[1]}
-            C ) ${a[2]}
-            D ) ${a[3]}`
+                B ) ${a[1]}
+                C ) ${a[2]}
+                D ) ${a[3]}`
             )
             .setColor(embed_color)]
     }
@@ -107,7 +129,7 @@ exports.quiz = function (message, time, embed_color = "0000ff") {
                     else message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`${challanger} got it wrong. The correct answer was ${q.answer}.`).setColor("ff0033")] });
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Times up!").setColor("ff0033")] });
             });
     })
